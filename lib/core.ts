@@ -11,3 +11,9 @@ export interface PaginateResult<T> {
   hasPrevPage: boolean;
   hasNextPage: boolean;
 }
+
+export interface HttpException {
+  statusCode: number;
+  message: string;
+  error: string;
+}

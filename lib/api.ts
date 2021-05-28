@@ -1,3 +1,6 @@
+import { FileInfo } from "./dto";
+import { HttpException } from "./core";
+
 const API_URL = process.env.API_URL;
 async function fetchGraphQL(query: any, { variables }: { variables?: any }) {
   const headers = { "Content-Type": "application/json" };
@@ -25,18 +28,27 @@ async function fetchGraphQL(query: any, { variables }: { variables?: any }) {
   return json.data;
 }
 
+function handleErrors<T>(response: Response): Promise<T> | null {
+  if (response.status >= 200 && response.status <= 299) {
+    const jsonResponse = response.json().then((data) => data as T);
+    return jsonResponse;
+  } else {
+    // Handle errors
+    console.log(response.status, response.statusText);
+    return null;
+  }
+}
+
 export async function getAvator() {
   const res = await fetch(
     "https://pearl-portfolio-server.herokuapp.com/files/name/avatar.jpg"
   );
-  const avator = await res.json();
-  return avator;
+  return handleErrors<FileInfo>(res);
 }
 
-export async function getAboutTag() {
+export async function getAboutBackground() {
   const res = await fetch(
     "https://pearl-portfolio-server.herokuapp.com/files/name/about_tag.jpg"
   );
-  const about = await res.json();
-  return about;
+  return handleErrors<FileInfo>(res);
 }
