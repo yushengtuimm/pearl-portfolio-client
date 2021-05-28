@@ -13,7 +13,7 @@ const InfoCard = ({ wait, file }: { wait?: number; file: FileInfo }) => {
       <div className="flex items-center bg-blue-100 rounded-2xl col-span-1 row-span-2">
         <div className="p-10 flex flex-col justify-center items-center align-middle">
           <div className="p-10 animate-dropIn">
-            <Avatar src={file.url} width={200} height={200} />
+            {file && <Avatar src={file.url} width={200} height={200} />}
           </div>
           <div className="flex flex-col items-center animate-dropUp">
             <h1 className="degree-h">M.P.H. & R.D.</h1>

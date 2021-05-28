@@ -29,7 +29,7 @@ const AboutCard = ({
   return (
     !hidden && (
       <div className="relative group bg-green-100 rounded-2xl col-span-1 row-span-1 animate-fadeIn">
-        {/* <Image
+        {/* background && <Image
           className="rounded-2xl z--10"
           src={background.url}
           alt="sunshine.jpg"
