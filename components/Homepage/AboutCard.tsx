@@ -1,7 +1,6 @@
-import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import useDelay from "../../lib/utils/delay";
-import useResize from "../../lib/utils/useResize";
 import { FileInfo } from "../../lib/dto";
 import Image from "next/image";
 
@@ -13,30 +12,31 @@ const AboutCard = ({
   background: FileInfo;
 }) => {
   const { hidden } = useDelay(wait);
-  const divRef: any = useRef(null);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  // const divRef: any = useRef(null);
+  // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  useEffect(() => {
-    if (divRef.current) {
-      setDimensions({
-        width: divRef.current.offsetWidth,
-        height: divRef.current.offsetHeight,
-      });
-      console.log(dimensions.width, dimensions.height);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (divRef.current) {
+  //     setDimensions({
+  //       width: divRef.current.offsetWidth,
+  //       height: divRef.current.offsetHeight,
+  //     });
+  //   }
+  // }, []);
 
   return (
     !hidden && (
       <div className="relative group bg-green-100 rounded-2xl col-span-1 row-span-1 animate-fadeIn">
-        {/* background && <Image
-          className="rounded-2xl z--10"
-          src={background.url}
-          alt="sunshine.jpg"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-        /> */}
+        {background && (
+          <Image
+            className="rounded-2xl z--10"
+            src={background.url}
+            alt="sunshine.jpg"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
+        )}
 
         <div className="relative m-10 h-3/4">
           <h1 className="text-2xl font-inter">About Me</h1>

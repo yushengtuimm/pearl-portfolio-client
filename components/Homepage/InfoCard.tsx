@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FileInfo } from "../../lib/dto";
-import Avatar from "../Avatar/Avatar";
+import Avatar from "./Avatar";
 import useDelay from "../../lib/utils/delay";
 
 const InfoCard = ({ wait, file }: { wait?: number; file: FileInfo }) => {

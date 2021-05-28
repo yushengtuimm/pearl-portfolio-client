@@ -2,9 +2,8 @@ import Head from "next/head";
 import React, { useState, useMemo } from "react";
 import { FileInfo } from "../lib/dto";
 import { PaginateResult } from "../lib/core";
-import { getAvator, getAboutTag } from "../lib/api";
-import InfoCard from "../components/Info/InfoCard";
-import AboutCard from "../components/AboutCard/AboutCard";
+import { getAvator, getAboutBackground } from "../lib/api";
+import { InfoCard, AboutCard, FocusCard } from "../components/Homepage";
 
 export default function Home({
   pageResults,
@@ -22,30 +21,25 @@ export default function Home({
       </Head>
       <InfoCard wait={1000} file={avator} />
       <AboutCard wait={1500} background={about} />
-      <div className="bg-gray-100 rounded-2xl col-span-1 row-span-2">
-        <iframe
-          src="https://pearl-tu-portfolio.s3.amazonaws.com/89d5df20-d66c-4763-8596-f3f342b40080.pptx?AWSAccessKeyId=AKIARLS3QRVYPK24JBPQ&Expires=1621969483&Signature=Nhcrx7SJqOQY4esS1UUNiIkY1io%3D"
-          width="100%"
-          height="600px"
-        />
-      </div>
+      <FocusCard wait={1500} />
+      <div className="bg-gray-100 rounded-2xl col-span-1 row-span-1"></div>
       {/* <div className="bg-red-200 rounded-2xl col-span-1 row-span-1"></div> */}
     </div>
   );
 }
 
 export const getStaticProps = async () => {
-  let res = await fetch(
-    "https://pearl-portfolio-server.herokuapp.com/files?type=pdf&limit=2"
-  );
-  const pdfs = await res.json();
+  // let res = await fetch(
+  //   "https://pearl-portfolio-server.herokuapp.com/files?type=pdf&limit=2"
+  // );
+  // const pdfs = await res.json();
   const avator = await getAvator();
-  const aboutTag = await getAboutTag();
+  const aboutBackground = await getAboutBackground();
   return {
     props: {
-      pageResults: pdfs,
+      pageResults: null,
       avator: avator,
-      about: aboutTag,
+      about: aboutBackground,
     },
   };
 };
