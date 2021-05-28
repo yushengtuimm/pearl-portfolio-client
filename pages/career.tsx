@@ -1,11 +1,11 @@
 import React from "react";
 import Head from "next/head";
 
-function about() {
+function career() {
   return (
     <>
       <Head>
-        <title>About Me</title>
+        <title>Career & Value</title>
       </Head>
 
       <div className="flex justify-center bg-white my-24">
@@ -64,4 +64,10 @@ function about() {
     </>
   );
 }
-export default about;
+
+export const getStaticProps = async () => {
+  return {
+    props: {},
+  };
+};
+export default career;

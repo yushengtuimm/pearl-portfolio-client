@@ -15,15 +15,13 @@ export default function Home({
   about: FileInfo;
 }) {
   return (
-    <div className="grid auto-cols-fr auto-rows-fr grid-cols-3 grid-rows-content gap-8 m-8">
+    <div className="grid auto-cols-fr auto-rows-fr lg:grid-cols-3 md:grid-cols-2 grid-rows-content gap-8 p-8 grid-cols-1 bg-gray-200">
       <Head>
         <title>Pearl Tu: Homepage</title>
       </Head>
       <InfoCard wait={1000} file={avator} />
       <AboutCard wait={1500} background={about} />
       <FocusCard wait={1500} />
-      <div className="bg-gray-100 rounded-2xl col-span-1 row-span-1"></div>
-      {/* <div className="bg-red-200 rounded-2xl col-span-1 row-span-1"></div> */}
     </div>
   );
 }

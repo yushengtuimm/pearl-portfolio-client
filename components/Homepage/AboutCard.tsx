@@ -12,48 +12,43 @@ const AboutCard = ({
   background: FileInfo;
 }) => {
   const { hidden } = useDelay(wait);
-  // const divRef: any = useRef(null);
-  // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  // useEffect(() => {
-  //   if (divRef.current) {
-  //     setDimensions({
-  //       width: divRef.current.offsetWidth,
-  //       height: divRef.current.offsetHeight,
-  //     });
-  //   }
-  // }, []);
 
   return (
     !hidden && (
-      <div className="relative group bg-green-100 rounded-2xl col-span-1 row-span-1 animate-fadeIn">
+      <div className="relative group flex flex-wrap items-end p-10 rounded-2xl col-span-1 row-span-1 animate-fadeIn bg-white">
         {background && (
-          <Image
-            className="rounded-2xl z--10"
-            src={background.url}
-            alt="sunshine.jpg"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
+          <div className="-z-10">
+            <Image
+              className="rounded-2xl"
+              src={background.url}
+              alt="sunshine.jpg"
+              layout="fill"
+            />
+          </div>
         )}
 
-        <div className="relative m-10 h-3/4">
-          <h1 className="text-2xl font-inter">About Me</h1>
-          <Link href="/about">
-            <div className="absolute bottom-0">
-              <p className="line-clamp-3 my-5 cursor-pointer font-inter group-hover:underline">
-                My academic passion towards nutrition originally comes from my
-                childhood routine and interest. Raised by parents who mostly
-                work abroad, I started living with plenty of freedom at ten
-                years-of-age.
-              </p>
-              <button className="rounded-full bg-green-50 px-5 py-2 font-inter hover:bg-white">
+        <h1 className="self-start text-2xl font-semibold tracking-wide uppercase rounded bg-white px-2">
+          About Me
+        </h1>
+
+        <Link href="/about">
+          <a target="_blank" rel="noopener noreferrer">
+            <div className="z-10">
+              <h1 className="leading-normal py-1 my-2">
+                <span className="text-base tracking-wide line-clamp-3 bg-gray-100 px-2 cursor-pointer group-hover:underline">
+                  So what made me become a Registered Dietitian and pursued a
+                  Master’s degree in Public Health? This academic passion for
+                  nutrition originally comes from my childhood routine and
+                  interest. Raised by parents who mostly work abroad, I started
+                  living with plenty of freedom at ten years of age.
+                </span>
+              </h1>
+              <button className="rounded-full font-light bg-blue-100 px-5 py-2 hover:bg-white">
                 Learn More...
               </button>
             </div>
-          </Link>
-        </div>
+          </a>
+        </Link>
       </div>
     )
   );

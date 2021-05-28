@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ["Inter"],
         "noto-scans": ["Noto Sans TC"],
         inter: ["Inter"],
       },
@@ -23,7 +24,8 @@ module.exports = {
         content: "minmax(260px, 1fr) 1fr 1fr minmax(220px, 1fr)",
       },
       gridTemplateRows: {
-        content: "minmax(328px, auto) minmax(328px, auto) minmax(328px, auto)",
+        small: "repeat(3, minmax(100px, 200px));",
+        content: "minmax(328px, 1fr) minmax(328px, 1fr) minmax(328px, 1fr)",
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in forwards",

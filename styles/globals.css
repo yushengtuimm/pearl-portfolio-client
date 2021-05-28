@@ -15,6 +15,6 @@
   }
 
   .degree-h {
-    @apply text-2xl font-noto-scans break-words text-center p-2;
+    @apply text-2xl break-words text-center p-2;
   }
 }
